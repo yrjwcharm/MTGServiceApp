@@ -91,7 +91,7 @@ function AppContainer() {
                 <Stack.Screen
                     name={'Main'}
                     component={MainScreen}
-                    options={{ headerLeft: null, headerShown: false }}
+                    options={{ gestureEnabled:false, headerLeft: null, headerShown: false }}
                 />
                 <Stack.Screen options={{headerShown:false}} name="WebViewPage" component={WebViewPage}/>
                 <Stack.Screen options={{title:'资讯详情'}} name="HealthInfoDetail" component={HealthInfoDetail}/>

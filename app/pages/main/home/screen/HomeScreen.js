@@ -22,6 +22,7 @@ import Loading from '../../../../components/Loading';
 import AsyncStorageUtil from '../../../../util/AsyncStorageUtil';
 import TitleButton from '../../../../components/TitleButton';
 import NavigationHelper from '../../../../NavigationHelper'
+import request from '../../../../request/NetUtils';
 const HomeScreen =(props)=>{
     const {isLoading, navigation, getHeadlines,userInfo, headLineData,route} =props;
     const [position,setPosition]=useState('');
@@ -68,12 +69,12 @@ const HomeScreen =(props)=>{
                             }
                         })
                         .catch((error) => {
-                            console.error(error);
+                            // console.error(error);
                         });
                     //访问网络结束
                 },
                 error => {
-                    console.error(error);
+                    // console.error(error);
                 }
             );
     }
@@ -81,13 +82,13 @@ const HomeScreen =(props)=>{
     // 跳转资讯详情
     const handlePressItem = () => {
         const {navigation} = props;
-        navigation.navigate('HealthInfoDetail');
+         navigation.navigate('HealthInfoDetail');
     }
     // 跳转到健康资讯
     const goHealthInfo = () => {
         const {navigation} = props;
-        navigation.navigate('Main');
-        DeviceEventEmitter.emit('changeTab','info');
+        // navigation.navigate('Main');
+        // DeviceEventEmitter.emit('changeTab','info');
     }
 
 
@@ -229,6 +230,7 @@ const HomeScreen =(props)=>{
                             <InfoItems {...props}
                                        stylesOfComponents={stylesOfComponents}
                                        styles={stylesOfHI}
+                                       navigation={navigation}
                                        onPressFn={handlePressItem}
                                        temp={{'isNominate': 1, 'typeId': '10000'}}
                                        length={headLineData.length}

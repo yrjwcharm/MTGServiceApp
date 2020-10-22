@@ -8,14 +8,12 @@ import { Keyboard, ToastAndroid, BackHandler, Platform } from 'react-native';
 class NavigationHelper {
     navigator: NavigationContainerRef;
     private _pushing: boolean;
-    private _backTwice: boolean;
     private _backActionMap: {
         [key: string]: () => void;
     };
 
     constructor() {
         this._pushing = false;
-        this._backTwice = false;
         this._backActionMap = {};
     }
 
@@ -161,6 +159,27 @@ class NavigationHelper {
         this._backActionMap[routeName] = action;
     }
 
+    /**
+     * 返回键处理
+     * @returns {boolean}
+     */
+    backAction = (): boolean => {
+        const { index, routes } = this.navigator.getRootState();
+        const routeName = routes[routes.length - 1].name;
+
+        if (index !== 0) {  // 非最顶层
+            if (this._backActionMap[routeName] instanceof Function) {
+                Keyboard.dismiss();
+                this._backActionMap[routeName]();
+            } else {
+                this.pop();
+            }
+            return true;
+        } else {
+            this.pop();
+        }
+        return true;
+    }
 }
 
 const navigation = new NavigationHelper();

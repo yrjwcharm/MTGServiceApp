@@ -14,7 +14,7 @@ import ToolBar from './ToolBar';
 import styles from '../../../style/style'
 
 const InfoItems = (props) => {
-  let { item, navigation, stylesOfComponents, temp, length, index, list = [], setList, isDetailList } = props;
+  let { item,stylesOfComponents, temp, length,navigation, index, list = [], setList, isDetailList } = props;
   if(!length) {
     length = list.length;
   }

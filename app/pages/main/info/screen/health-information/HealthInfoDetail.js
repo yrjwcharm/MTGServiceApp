@@ -192,16 +192,16 @@ class HealthInfoDetail extends Component {
 
     // 获取资讯内容
     getBaseDetail = () => {
-        const {fetchInfoDetail, navigation} = this.props;
-        const {item} = navigation.state.params || {};
+        const {fetchInfoDetail, navigation,route:{params}} = this.props;
+        const {item} =params || {};
         const {newsId, typeId} = item;
         fetchInfoDetail({newsId, typeId});
     };
 
     // 获取评论
     getBaseComment = () => {
-        const {fetchInfoComments, navigation, userId} = this.props;
-        const {item} = navigation.state.params || {};
+        const {fetchInfoComments, navigation,route:{params}, userId} = this.props;
+        const {item} = params || {};
         const {newsId} = item;
         fetchInfoComments({userId, oneLevelId: newsId, modularType: 2});
     };
@@ -279,8 +279,8 @@ class HealthInfoDetail extends Component {
         if (this.isRead) {
             return;
         }
-        const {navigation} = this.props;
-        const {item, list, setList} = navigation.state.params || {};
+        const {navigation,route:{params}} = this.props;
+        const {item, list, setList} =params || {};
         const {typeId, newsId} = item;
         const {
             contentOffset: {y}, // 头部超出屏幕的offset
@@ -307,7 +307,6 @@ class HealthInfoDetail extends Component {
         }
         return (
             <View style={styles.tabContainer}>
-                <Title name={'资讯详情'} back onBack={() => this.props.navigation.goBack()}/>
                 <View
                     ref={ref => this.progress = ref}
                     style={{
