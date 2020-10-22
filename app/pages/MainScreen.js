@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {createRef, forwardRef, useCallback, useEffect, useRef, useState} from 'react';
 import {
     View,
     Text,
@@ -15,10 +15,12 @@ import Info from './main/info/screen/health-information/index';
 import MessageScreen from './main/message/screen/MessageScreen';
 import MineScreen from './main/my/screen/MineScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import navigation from '../NavigationHelper';
 const Tab = createBottomTabNavigator();
 
  const MainScreen =(props)=> {
      let lastBackPressed = 0;
+     const [initRoute,setInitRoute] = useState('home');
      const tabConfigs = {
          home: {
              screen: HomeScreen,
@@ -51,8 +53,13 @@ const Tab = createBottomTabNavigator();
      };
      useEffect(
          () => {
+            let listener= DeviceEventEmitter.addListener('changeTab',(result)=>{
+                     // setInitRoute(result)
+                    props.navigation.navigate('info');
+                })
              BackHandler.addEventListener('hardwareBackPress', onBackAndroid);
              return () => {
+                 listener&&listener.remove();
                  BackHandler.removeEventListener('hardwareBackPress', onBackAndroid);
              }
          }, [])
@@ -86,7 +93,7 @@ const Tab = createBottomTabNavigator();
       */
         return (
         <Tab.Navigator
-            initialRouteName={'home'}
+            initialRouteName={initRoute}
             screenOptions={({route, navigation}) => ({
                 tabBarIcon: ({focused, color, size}) => {
                     const _source = focused ? tabConfigs[route.name].activeIcon : tabConfigs[route.name].inActiveIcon;

@@ -1,12 +1,11 @@
 import React, {PureComponent, useEffect, useRef, useState} from 'react';
 import WebView from 'react-native-webview';
 import {BackHandler, Dimensions, Platform, SafeAreaView, StatusBar, View} from 'react-native';
-import {isIPhoneX} from '../../util/AutoLayout';
+import {isIOS, isIPhoneX, isIPhoneXR, overAndroid5} from '../../util/AutoLayout';
 import NavigationHelper from '../../NavigationHelper'
 const {width, height} = Dimensions.get('window');
-const statusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight : isIPhoneX() ? 34 : 20;
+const statusBarHeight = isIOS ? ((isIPhoneX|| isIPhoneXR) ? 44 : 20) : (overAndroid5 ? StatusBar.currentHeight : 0);
 const WebViewPage = (props) => {
-    console.log(333,props);
      const {navigation,route:{params}} = props;
     const webview = useRef(null);
     const [canBack, setCanBack] = useState(false);
@@ -25,6 +24,7 @@ const WebViewPage = (props) => {
         }, [canBack]);
     const onMessage = (event) => {
         try {
+            console.log(123,event);
             let data = event.nativeEvent.data;
             let result = data && JSON.parse(data);
             result.back && props.navigation.goBack();

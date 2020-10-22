@@ -36,7 +36,7 @@ const HomeScreen =(props)=>{
                 url =Config.api+Config.register+`?userInfo=${JSON.stringify(userInfo)}&typeOfRegistration=${'AppointmentRegistration'}`;
                 break;
             case "mobilePayment":
-                url =Config.api+Config.mobilePayment+`?userInfo=${JSON.stringify(userInfo)}`;
+                url =Config.api+Config.mobilePayment+`?userInfo=${JSON.stringify(userInfo)}&typeOfRegistration=${'payMoney'}`;
                 break;
             case "reportQuery":
                 url =Config.api+Config.reportQuery+`?userInfo=${JSON.stringify(userInfo)}`;
@@ -87,8 +87,8 @@ const HomeScreen =(props)=>{
     // 跳转到健康资讯
     const goHealthInfo = () => {
         const {navigation} = props;
-        // navigation.navigate('Main');
-        // DeviceEventEmitter.emit('changeTab','info');
+          navigation.navigate('Main');
+         DeviceEventEmitter.emit('changeTab','info');
     }
 
 

@@ -6180,6 +6180,11 @@ react-native-scrollable-tab-view@^1.0.0:
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.3"
 
+react-native-shadow@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npm.taobao.org/react-native-shadow/download/react-native-shadow-1.2.2.tgz#08991cd14b71e32f2fc6363911c139d231949a66"
+  integrity sha1-CJkc0Utx4y8vxjY5EcE50jGUmmY=
+
 react-native-spinkit@^1.5.1:
   version "1.5.1"
   resolved "https://registry.npm.taobao.org/react-native-spinkit/download/react-native-spinkit-1.5.1.tgz#5b770ce93e1f892b3d1983fd3ce2d7375335eb6b"

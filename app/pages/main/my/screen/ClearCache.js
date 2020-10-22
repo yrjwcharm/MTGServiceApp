@@ -5,18 +5,20 @@ import * as CacheManager from 'react-native-http-cache';
 import Title from '../../../../components/Title';
 import {Toast} from 'teaset'
 const ClearCache = (props)=>{
-    const {navigation}=props;
     const [cacheSize,setCacheSize]=useState(0);
     useEffect(()=>{
-        CacheManager.getCacheSize().then(size=>{
-            const  cacheSize= size/1024/1024;
-            setCacheSize(cacheSize.toFixed(2))
-        })
-    },[cacheSize])
+            getCacheSize();
+    },[])
     const clearCache=()=>{
          CacheManager.clearCache();
         Toast.success('缓存清理完成');
         // Toast.info('缓存已清理')
+        getCacheSize();
+    }
+    const getCacheSize =async ()=>{
+       const cacheSize = await CacheManager.getCacheSize()
+            setCacheSize((cacheSize/1024/1024).toFixed(2))
+
     }
     return(
         <View style={Styles.container}>

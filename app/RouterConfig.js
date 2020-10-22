@@ -47,10 +47,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         textAlign: 'center',
     },
-    card: {
-        flex: 1,
-        backgroundColor: '#f5f5f9',
-    },
 });
 const _ref = (ref:NavigationContainerRef) => {
     NavigationHelper.setNavigator(ref);

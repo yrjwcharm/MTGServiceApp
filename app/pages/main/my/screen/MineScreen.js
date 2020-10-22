@@ -12,8 +12,9 @@ import ListRow from 'teaset/components/ListRow/ListRow';
 export const MineScreen = (props) => {
     const {isLoading, userInfo: {photoUrlDic, realName},navigation} = props;
     const listItems= [
-        {label:'就诊人',source:Images.patient, onPress:()=>{}},
+        {label:'就诊人',source:Images.patient, onPress:()=>{navigation.navigate('WebViewPage',{url:Config.api+Config.patient})}},
         {label:'我的预约',source:Images.myAppointment, onPress:()=>{}},
+        {label:'我的卡包',source:Images.myAppointment, onPress:()=>{navigation.navigate('WebViewPage',{url:Config.api+Config.myWallet})}},
         {label:'我的缴费',source:Images.myPayment, onPress:()=>{}},
         {label:'缴纳住院押金',source:Images.hospitalDeposit, onPress:()=>{}},
         {label:'设置', source:Images.settings,onPress:()=>{navigation.navigate('UserSettings')}},
@@ -101,9 +102,9 @@ export const MineScreen = (props) => {
             </View>
             <View style={{backgroundColor: Color.f3f3f7, height: scaleSizeH(10)}}/>
             <View style={{paddingHorizontal: scaleSizeW(15)}}>
-                {listItems.map(item=>{
+                {listItems.map((item,index)=>{
                     return(
-                        <Menu label={item.label} source={item.source} onPress={item.onPress} />
+                        <Menu key={index.toString()} label={item.label} source={item.source} onPress={item.onPress} />
                     )
                 })}
             </View>
