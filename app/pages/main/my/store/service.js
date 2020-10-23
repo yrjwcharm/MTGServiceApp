@@ -1,5 +1,6 @@
 import Request,{ HOST_MANAGE }  from '@request';
 import request from '../../../../request/NetUtils';
+import {HOST} from '../../../../request';
 /**
  * 更新用户类型
  */
@@ -133,69 +134,11 @@ export const fetchUpload = (images, params, options) => {
 }
 
 
-// swtich 血压isPressure ， 血糖isBloodGlucose ，bmi
-export const fetchBasicInfoSwtich = (data) => {
-    let _url;
-    if (data['code'] === 'isPressure') {
-        _url = '/monitor/bloodPressure/syLogBloodPressureHistory/getLastByMeasureTime?userId=';
-    } else if (data['code'] === 'isBloodGlucose') {
-        _url = '/monitor/BloodSugar/SyLogBloodSugarHistory/getLastByMeasureTime?userId=';
-    } else {
-        _url = '/monitor/bmi/SyLogBmiHistory/getLastByMeasureTime?userId=';
-    }
-    return request.get(`${HOST_MONITOR}` + _url + data['userId']);
-}
-
 // 用户退出登录
 export const fetchUserLoginOut = () => {
     return request.get(HOST + '/login/logout');
 }
 
-// 查看用户健康评估历史
-export const fetchUserTestHistory = ({ page, size }) => {
-    return request.get(HOST_ASSESSMENT + '/health/assess/user/assess/list/page', { page, size });
-}
-
-// 资料完整度
-export const fetchPrecent = () => {
-    return request.get(HOST_MANAGE + '/userController/perfectPercentage');
-}
-
-export const fetchServiceList = ({ page, search = '', pageSize = 10 }) => {
-    let object = [];
-    for (let i = 0; i < 10; i++) {
-        const index = i + (page - 1) * 10
-        object[i] = {
-            'title': '家庭医生签约服务',
-            'desc': '签约家庭医生，为您提供免费健康咨询和慢病跟踪管理服务',
-            'serviceType': [1, 2][index % 2],
-            'applyStatus': [0, 1, 2][index % 3],
-            'id': 100000 + index + '',
-            'date': '2019年12月31日',
-            imgUrl: 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3925149572,2926518901&fm=26&gp=0.jpg',
-
-            drName: '张东林',
-            protitle: '主任医师',
-            count: 1,
-            deadline: '1个月',
-        }
-    }
-    object = object.filter(v => v.title.includes(search));
-    const result = {
-        currentPage: page,
-        more: page > 2 || object.length < 10 ? 0 : 1,
-        object,
-        size: 10,
-        startIndex: 0,
-        total: 0,
-        totalPage: 1,
-    }
-    return new Promise((reslove) => {
-        setTimeout(() => {
-            reslove({ data: result });
-        }, 100)
-    })
-}
 
 /**
  * 用户获取我的服务列表

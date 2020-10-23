@@ -65,6 +65,7 @@ export  default{
     myAppointment:require('./images/mine/myAppointment.png'),
     myPayment:require('./images/mine/myPayment.png'),
     hospitalDeposit:require('./images/mine/hospitalDeposit.png'),
-    settings:require('./images/mine/settings.png')
+    settings:require('./images/mine/settings.png'),
+    wallet:require('./images/mine/wallet.png')
 
 }

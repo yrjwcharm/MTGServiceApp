@@ -38,7 +38,7 @@ const WebViewPage = (props) => {
             webview.current.goBack();
             return true;
         } else {
-            global.back = true;
+             global.back = true;
             NavigationHelper.goBack();
         }
 

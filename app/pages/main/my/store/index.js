@@ -49,6 +49,7 @@ export default {
         if (data.code === 200) {
           yield put({type: 'user/changeUploadPhotoData', data: data.data,});
           // yield put({type: 'my/changeUserUploadPhoto', data: data.data});
+          console.log(333,data);
           params.callback(data);
         }
         yield put({type: 'user/changeLoading', data: false,});

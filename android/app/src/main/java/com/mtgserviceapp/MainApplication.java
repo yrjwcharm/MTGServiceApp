@@ -3,6 +3,7 @@ package com.mtgserviceapp;
 import android.app.Application;
 import android.content.Context;
 
+import androidx.annotation.Nullable;
 import androidx.multidex.MultiDex;
 
 import com.facebook.react.PackageList;
@@ -39,6 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSMainModuleName() {
           return "index";
         }
+
       };
 
   @Override

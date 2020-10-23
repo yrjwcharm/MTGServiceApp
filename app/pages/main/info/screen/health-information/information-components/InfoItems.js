@@ -34,7 +34,7 @@ const InfoItems = (props) => {
       {
         //1缩略图在左 2缩略图在右 3多图 4大图 5
         item['newMode'] == 1
-          ? <TouchableWithoutFeedback onPress={() => navigation.navigate('HealthInfoDetail', { item: item, list, setList })}>
+          ? <TouchableWithoutFeedback onPress={() => navigation&& navigation.navigate('HealthInfoDetail', { item: item, list, setList })}>
             <View>
               <View
                 style={styles.rightHasImgContainer}

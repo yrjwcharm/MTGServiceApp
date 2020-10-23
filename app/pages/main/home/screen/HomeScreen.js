@@ -11,7 +11,7 @@ import {
     StatusBar, FlatList, ScrollView, DeviceEventEmitter,
 } from 'react-native';
 import {connect} from 'react-redux';
-import {isIPhoneX} from '../../../../util/AutoLayout';
+import {isIPhoneX, isIPhoneXR} from '../../../../util/AutoLayout';
 import Swiper from 'react-native-swiper'
 import stylesOfComponents from '../style/style';
 import stylesOfHI from '../style/specStyle';
@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
     },
     paddingTop:{
-        paddingTop:Platform.OS==='android'?StatusBar.currentHeight:isIPhoneX()?34:20
+        paddingTop:Platform.OS==='android'?StatusBar.currentHeight:(isIPhoneX||isIPhoneXR)?44:20
     },
     flexFont:{
         color:"#333",
