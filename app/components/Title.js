@@ -18,8 +18,8 @@ const Title =(props)=>{
     }
     return(
         <BoxShadow setting={shadowOpt}>
-        <View style={[styles.paddingTop,{backgroundColor:'#fff',borderBottomColor:'#eee',borderBottomWidth:StyleSheet.hairlineWidth}]}>
-        <View style={StyleSheet.flatten(styles.header)}>
+        <View style={[styles.paddingTop]}>
+        <View style={StyleSheet.flatten([styles.header,{backgroundColor:'#fff',}])}>
             <View style={{paddingHorizontal:scaleSizeW(15),flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                 <TouchableOpacity activeOpacity={.8} onPress={props.onPressBack}>
                     {props.back?<Iconfont name="goback" color={'#333'} />

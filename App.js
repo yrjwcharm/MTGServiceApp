@@ -44,7 +44,8 @@ export default class App extends Component {
         return (
                 <Provider store={store}>
                   <StatusBar
-                      backgroundColor="transparent"
+                      barStyle={'dark-content'}
+                      backgroundColor={'#fff'}
                       translucent={true}
                   />
                     <PersistGate loading={null} persistor={persistor}>
