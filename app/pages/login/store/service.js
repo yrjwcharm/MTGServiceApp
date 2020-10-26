@@ -3,37 +3,25 @@ import Request,{HOST_NM, HOST_MANAGE,HOST}  from '@request';
  * 获取验证码(统一为一个)
  */
 export const fetchGetVerificationCode = (params) => {
-    return Request.get(HOST+'/verification/getVerificationCode', params,);
-}
-/**
- * 发送验证码
- */
-export const fetchSendCode = (params) => {
-    return Request.get(HOST_MANAGE+'/verification/getVerificationCode/login', params,);
-}
-/**
- * 找回密码发送验证码
- */
-export const fetchFindPswSendCode = (params) => {
-    return Request.get(HOST_MANAGE+'/verification/getVerificationCode/retrievePassword', params,);
+    return Request.get(HOST_MANAGE+'/verification/getVerificationCode', params,);
 }
 /**
  * 判断验证吗是否正确
  */
 export const fetchCheckCode = (params) => {
-    return Request.get(HOST+'/login/checkCode', params);
+    return Request.get(HOST_MANAGE+'/login/checkCode', params);
 }
 /**
  * 验证码登录
  */
 export const fetchCodeLogin = (params) => {
-    return Request.get(HOST+'/login/verificationLogin', params,);
+    return Request.get(HOST_MANAGE+'/login/verificationLogin', params,);
 }
 /**
  * 密码登录
  */
 export const fetchPswLogin = (params) => {
-    return Request.post(HOST+'/login/login', params,);
+    return Request.post(HOST_MANAGE+'/login/login', params,);
 }
 /**
  * 修改密码
@@ -67,7 +55,7 @@ export const fetchbindPhone = (params) => {
  * 注册
  */
 export const fetchRegister = (params) => {
-    return Request.post(HOST+'/login/register', params,);
+    return Request.post(HOST_MANAGE+'/login/register', params,);
 }
 
 

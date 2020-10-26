@@ -3,9 +3,9 @@ import React, {Component} from 'react';
 import {BackHandler, Image, Text, TouchableWithoutFeedback, View ,AppState} from 'react-native';
 
 import {connect,} from 'react-redux';
-import {Button, Provider, Toast} from '@ant-design/react-native';
+import {Button, Provider,} from '@ant-design/react-native';
 
-
+import {Toast} from 'teaset'
 import commonStyle from '../../../styles/common';
 import {scaleSizeH, scaleSizeW, setSpText} from "../../../util/AutoLayout";
 import loginStyle from "../style/LoginStyle";
@@ -46,7 +46,7 @@ class LoginSendCodeScreen extends Component {
 
     componentDidMount() {
         const {phone} = this.props.route.params;
-        if (this.state.count == 60) {
+        if (this.state.count === 60) {
             this.props.fetchSendCode({
                 phone: phone,
                 authType:1,
@@ -94,7 +94,7 @@ class LoginSendCodeScreen extends Component {
     handleLogin = () => {
         const {phone} = this.props.route.params;
         if (!this.state.verificationCode.search(regExp.RegNull)) {
-            Toast.info('验证码不能为空', 1.5, null, false);
+            Toast.info('验证码不能为空', );
             return;
         }
         this.props.fetchCodeLogin({
@@ -124,12 +124,9 @@ class LoginSendCodeScreen extends Component {
         } else if (data.code === 900002) {
             this.onShow();
         }else {
-            Toast.info(data.msg, 1, null, false);
+            Toast.info(data.msg, );
         }
 
-    }
-    toAuthor = () => {
-        this.props.navigation.navigate("Author")
     }
 
     toMain = (userInfo) => {
@@ -196,13 +193,8 @@ class LoginSendCodeScreen extends Component {
         } else if (initComplete === 3) {
             this.props.navigation.navigate('RegisterSuccess', {type: 1})
         }else {
-            this.toAuthor();
-
-            // this.props.navigation.navigate("HomePageScreen")
+             this.props.navigation.navigate("Main")
         }
-    }
-    toAuthor = () => {
-        this.props.navigation.navigate("Author")
     }
     onChangeName = (text) => {
         this.setState({'verificationCode': text});
@@ -261,7 +253,7 @@ class LoginSendCodeScreen extends Component {
 
     toLoginCode = () => {
         this.onClose();
-        this.props.navigation.navigate("LoginCodeScreen")
+        this.props.navigation.navigate("Login")
     }
 
     toRegist = () => {

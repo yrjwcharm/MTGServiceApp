@@ -4,16 +4,16 @@
  * @description: 本地的header
  */
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Image, TouchableWithoutFeedback} from 'react-native';
-import {scaleSizeH, scaleSizeW} from "../util/AutoLayout";
-
+import {Text, View, StyleSheet, Image, TouchableWithoutFeedback, StatusBar} from 'react-native';
+import {isIOS, isIPhoneX, isIPhoneXR, overAndroid5, scaleSizeH, scaleSizeW} from '../util/AutoLayout';
+const statusBarHeight = isIOS ? ((isIPhoneX|| isIPhoneXR) ? 44 : 20) : (overAndroid5 ? StatusBar.currentHeight : 0);
 const LocalHeader = (props) => {
     const {navigation, titleRight,title,onPress} = props;
     const goBack = () => {
         navigation.goBack()
     }
     return (
-        <View style={styles.view_content}>
+        <View style={[styles.view_content,{marginTop:statusBarHeight}]}>
             <TouchableWithoutFeedback onPress={onPress?onPress:goBack}>
                 <View style={styles.view_left}>
                     <Image
@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
         height: scaleSizeH(40),
         justifyContent: 'space-between',
         alignItems: 'center',
+        backgroundColor:'#fff',
         flexDirection: 'row'
     },
     view_center: {

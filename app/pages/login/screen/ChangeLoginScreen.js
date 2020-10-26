@@ -34,7 +34,7 @@ class ChangeLoginScreen extends Component {
 
 
     toLogin() {
-        this.props.navigation.push("LoginCodeScreen")
+        this.props.navigation.push("Login")
     }
     toLoginPsw() {
         this.props.navigation.push("LoginPswScreen")
@@ -103,7 +103,7 @@ class ChangeLoginScreen extends Component {
                             //     phone: this.state.phone
                             // })
                             // this.props.navigation.navigate('TabNavigaytor');
-                            Toast.info('暂未开通，敬请期待', 2, null, false);
+                            Toast.info('暂未开通，敬请期待', );
                         }}>
                         <View
                         style={this.state.style_type === 0 ? changeLoginStyle.view_change_type_item_forall : changeLoginStyle.view_change_type_item}>

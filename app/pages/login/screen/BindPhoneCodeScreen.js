@@ -12,8 +12,8 @@ import {
 import {
     connect,
 } from 'react-redux';
-import {Button, Toast} from '@ant-design/react-native';
-
+import {Button,} from '@ant-design/react-native';
+import {Toast} from 'teaset'
 
 import commonStyle from '../../../styles/common';
 import loginStyle from '../style/LoginStyle';
@@ -62,20 +62,20 @@ class SetPswCodeScreen extends Component {
     };
     toLoginCode = () => {
         this.onClose();
-        this.props.navigation.navigate("LoginCodeScreen")
+        this.props.navigation.navigate("Login")
     }
 
     sendCode = () => {
         if (!this.state.phone.search(regExp.RegNull)) {
-            Toast.info('手机号不能为空', 1.5, null, false);
+            Toast.info('手机号不能为空');
             return;
         }
         if (this.state.phone.search(regExp.Reg_TelNo)) {
-            Toast.info('请填写符合规范的手机号', 1.5, null, false);
+            Toast.info('请填写符合规范的手机号');
             return;
         }
         if (this.state.phone==this.props.userInfo.mobile) {
-            Toast.info('更换的新手机号不能与旧手机号相同', 1.5, null, false);
+            Toast.info('更换的新手机号不能与旧手机号相同', );
             return;
         }
         // this.props.fetchFindPswSendCode({
@@ -83,9 +83,9 @@ class SetPswCodeScreen extends Component {
         // }, this.toSetPswSendCodeScreen);
         this.props.fetchisBindPhone({phone:this.state.phone},(data)=>{
             if (data.code==200){
-                this.toSetPswSendCodeScreen();
+                  this.toSetPswSendCodeScreen();
             } else {
-                Toast.info(data.msg, 1, null, false);
+                Toast.info(data.msg, );
             }
         })
 
@@ -108,11 +108,11 @@ class SetPswCodeScreen extends Component {
 
     toRegist = () => {
         if (!this.state.phone.search(regExp.RegNull)) {
-            Toast.info('手机号不能为空', 1.5, null, false);
+            Toast.info('手机号不能为空', );
             return;
         }
         if (this.state.phone.search(regExp.Reg_TelNo)) {
-            Toast.info('请填写符合规范的手机号', 1.5, null, false);
+            Toast.info('请填写符合规范的手机号', );
             return;
         }
         this.onClose();
@@ -143,7 +143,7 @@ class SetPswCodeScreen extends Component {
                         onClickLeft={
                             this.toLoginCode
                         }/>
-                    <View style={loginStyle.view_top}>
+                    <View style={[loginStyle.view_top]}>
                         <Text style={loginStyle.text_top_left}>
                             绑定手机号
                         </Text>

@@ -3,9 +3,9 @@ import React, {Component} from 'react';
 import {BackHandler, Image, Text, TouchableWithoutFeedback, View ,AppState} from 'react-native';
 
 import {connect,} from 'react-redux';
-import {Button, Provider, Toast} from '@ant-design/react-native';
+import {Button, Provider,} from '@ant-design/react-native';
 
-
+import {Toast} from 'teaset'
 import commonStyle from '../../../styles/common';
 import {scaleSizeH, scaleSizeW, setSpText} from "../../../util/AutoLayout";
 import loginStyle from "../style/LoginStyle";
@@ -116,7 +116,7 @@ class SetPswSendCodeScreen extends Component {
         } else if (data.code === 100) {
             this.onShow();
         }else {
-            Toast.info(data.msg, 1, null, false);
+            Toast.info(data.msg, );
         }
 
     }
@@ -202,7 +202,7 @@ class SetPswSendCodeScreen extends Component {
 
     toLoginCode = () => {
         this.onClose();
-        this.props.navigation.navigate("LoginCodeScreen")
+        this.props.navigation.navigate("Login")
     }
 
     toRegist = () => {
@@ -241,7 +241,7 @@ class SetPswSendCodeScreen extends Component {
         loginOut();
         fetchUserLoginOut().then(res => {
             // this.onClose3();
-            navigation.navigate('LoginCodeScreen');
+            navigation.navigate('Login');
         })
     }
 

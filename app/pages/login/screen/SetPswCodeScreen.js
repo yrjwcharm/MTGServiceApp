@@ -12,8 +12,8 @@ import {
 import {
     connect,
 } from 'react-redux';
-import {Button, Toast} from '@ant-design/react-native';
-
+import {Button} from '@ant-design/react-native';
+import {Toast} from 'teaset'
 
 import commonStyle from '../../../styles/common';
 import loginStyle from '../style/LoginStyle';
@@ -62,16 +62,16 @@ class SetPswCodeScreen extends Component {
     };
     toLoginCode = () => {
         this.onClose();
-        this.props.navigation.navigate("LoginCodeScreen")
+        this.props.navigation.navigate("Login")
     }
 
     sendCode = () => {
         if (!this.state.phone.search(regExp.RegNull)) {
-            Toast.info('手机号不能为空', 1.5, null, false);
+            Toast.info('手机号不能为空', );
             return;
         }
         if (this.state.phone.search(regExp.Reg_TelNo)) {
-            Toast.info('请填写符合规范的手机号', 1.5, null, false);
+            Toast.info('请填写符合规范的手机号', );
             return;
         }
         // this.props.fetchFindPswSendCode({
@@ -98,11 +98,11 @@ class SetPswCodeScreen extends Component {
 
     toRegist = () => {
         if (!this.state.phone.search(regExp.RegNull)) {
-            Toast.info('手机号不能为空', 1.5, null, false);
+            Toast.info('手机号不能为空', );
             return;
         }
         if (this.state.phone.search(regExp.Reg_TelNo)) {
-            Toast.info('请填写符合规范的手机号', 1.5, null, false);
+            Toast.info('请填写符合规范的手机号', );
             return;
         }
         this.onClose();

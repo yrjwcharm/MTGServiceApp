@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 import {BackHandler, Image, Text, TouchableWithoutFeedback, View ,AppState} from 'react-native';
 
 import {connect,} from 'react-redux';
-import {Button, Provider, Toast} from '@ant-design/react-native';
-
+import {Button, Provider} from '@ant-design/react-native';
+import {Toast} from 'teaset'
 
 import commonStyle from '../../../styles/common';
 import {scaleSizeH, scaleSizeW, setSpText} from "../../../util/AutoLayout";
@@ -15,7 +15,7 @@ import {regExp} from "../../../util/reg";
 import Loading from '../../../components/Loading'
 import RegistModalView from '../../../components/RegistModalView'
 import LocalHeader from '../../../components/LocalHeader'
-import TextInputRigthButton from "../../../components/TextInputRightButton";
+import TextInputRightButton from "../../../components/TextInputRightButton";
 import {ThemeFlags} from "../../../styles/ThemeFactory";
 
 /**
@@ -93,7 +93,7 @@ class SetPswSendCodeScreen extends Component {
     handleLogin = () => {
         const {phone} = this.props.route.params;
         if (!this.state.verificationCode.search(regExp.RegNull)) {
-            Toast.info('验证码不能为空', 1.5, null, false);
+            Toast.info('验证码不能为空', );
             return;
         }
         this.props.fetchCheckCode({
@@ -113,7 +113,7 @@ class SetPswSendCodeScreen extends Component {
         } else if (data.code === 900002) {
             this.onShow();
         }else {
-            Toast.info(data.msg, 1, null, false);
+            Toast.info(data.msg, );
         }
 
     }
@@ -133,7 +133,7 @@ class SetPswSendCodeScreen extends Component {
                 token: data.data
             })
         } else{
-            Toast.info(data.msg, 1, null, false);
+            Toast.info(data.msg, );
         }
     }
 
@@ -196,7 +196,7 @@ class SetPswSendCodeScreen extends Component {
 
     toLoginCode = () => {
         this.onClose();
-        this.props.navigation.navigate("LoginCodeScreen")
+        this.props.navigation.navigate("Login")
     }
 
     toRegist = () => {
@@ -294,7 +294,7 @@ class SetPswSendCodeScreen extends Component {
                             />
                             <View
                                 style={loginStyle.view_line_vertical}/>
-                            <TextInputRigthButton
+                            <TextInputRightButton
                                 numberOfLines={1}
                                 underlineColorAndroid="transparent"
                                 maxLength={6}

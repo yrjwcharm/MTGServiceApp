@@ -20,7 +20,7 @@ import BindPhoneCodeScreen from './pages/login/screen/BindPhoneCodeScreen';
 import ChangeLoginScreen from './pages/login/screen/ChangeLoginScreen';
 import LoginPswScreen from './pages/login/screen/LoginPswScreen';
 import LoginSendCodeScreen from './pages/login/screen/LoginSendCodeScreen';
-import SetPswCodeScreen from './pages/login/screen/BindPhoneCodeScreen';
+import SetPswCodeScreen from './pages/login/screen/SetPswCodeScreen';
 import SetPswSendCodeScreen from './pages/login/screen/BindPhoneSendCodeScreen';
 import WebViewPage from './pages/main/WebViewPage';
 import HealthInfoDetail from './pages/main/info/screen/health-information/HealthInfoDetail';
@@ -32,6 +32,10 @@ import NavigationHelper from './NavigationHelper';
 import MainScreen from './pages/MainScreen'
 import TitleButton from './components/TitleButton';
 import {isIOS, isIPhoneX, isIPhoneXR, overAndroid5} from './util/AutoLayout';
+import Register from './pages/regist/screen/Regist';
+import RegisterSuccess from './pages/regist/screen/RegisterSuccess';
+import Qualificationcertification_user from './pages/regist/screen/Qualificationcertification_user';
+import BindPhoneSendCodeScreen from './pages/login/screen/BindPhoneSendCodeScreen';
 const Stack = createStackNavigator();
 const StatusBarHeight = isIOS ? ((isIPhoneX|| isIPhoneXR) ? 44 : 20) : (overAndroid5 ? StatusBar.currentHeight : 0);
 const styles = StyleSheet.create({
@@ -79,11 +83,15 @@ function AppContainer() {
                                name="Login" component={LoginCodeScreen}/>
                 <Stack.Screen options={{  headerShown: false }} name="AgreementScreen" component={AgreementScreen}/>
                 <Stack.Screen options={{  headerShown: false }} name="BindPhoneCodeScreen" component={BindPhoneCodeScreen}/>
+                <Stack.Screen options={{  headerShown: false }} name="BindPhoneSendCodeScreen" component={BindPhoneSendCodeScreen}/>
                 <Stack.Screen options={{  headerShown: false }} name="ChangeLoginScreen" component={ChangeLoginScreen}/>
                 <Stack.Screen options={{  headerShown: false }} name="LoginPswScreen" component={LoginPswScreen}/>
                 <Stack.Screen options={{ headerShown: false }} name="LoginSendCodeScreen" component={LoginSendCodeScreen}/>
                 <Stack.Screen options={{ headerShown: false }} name="SetPswCodeScreen" component={SetPswCodeScreen}/>
                 <Stack.Screen options={{ headerShown: false }} name="SetPswSendCodeScreen" component={SetPswSendCodeScreen}/>
+                <Stack.Screen options={{headerShown:false}} name="Regist" component={Register}/>
+                <Stack.Screen options={{headerShown:false}} name="RegisterSuccess" component={RegisterSuccess}/>
+                <Stack.Screen options={{headerShown:false}} name="Qualificationcertification_user" component={Qualificationcertification_user}/>
                 <Stack.Screen
                     name={'Main'}
                     component={MainScreen}

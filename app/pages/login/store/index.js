@@ -83,7 +83,7 @@ export default {
         yield put({type: 'login/changeLoading', data: true,});
 
         const data = yield fetchPswLogin(params.params);
-        console.log(data)
+        console.log(444,data)
         if (data.code == 200) {
           yield put({type: 'whitelistdata/changeTokenData', data: data.data.token,});
           yield put({type: 'whitelistdata/changeImTokenData', data: data.data.imToken,});
@@ -134,6 +134,7 @@ export default {
         yield put({type: 'login/changeLoading', data: true,});
 
         const data = yield fetchFindInfo(params.restOptions);
+        console.log(555,data);
         if (data.code == 200) {
           yield put({type: 'whitelistdata/changeUserInfo', data: data.data,});
           params.callback && params.callback(data.data);

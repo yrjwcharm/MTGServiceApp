@@ -4,28 +4,28 @@ import {
 } from 'react-native';
 import {scaleSizeW, scaleSizeH, setSpText} from '../../../util/AutoLayout'
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
 
     loginWrap: {
         flex:1,
         backgroundColor: '#FFFFFF',
-        paddingHorizontal:scaleSizeW(30)
+        paddingHorizontal:scaleSizeW(32)
     },
     view_content: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: scaleSizeH(40)
+        marginTop: scaleSizeH(85)
     },
     view_top: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-         marginTop: scaleSizeH(64)
+        marginTop: scaleSizeH(43)
     },
 
     view_line_vertical: {
-        height: scaleSizeH(19),
-        width: 1,
+        height: scaleSizeH(20),
+        width: scaleSizeW(1),
         marginLeft: scaleSizeW(10),
         marginRight: scaleSizeW(10),
         backgroundColor: '#F3F3F3'
@@ -34,22 +34,22 @@ var styles = StyleSheet.create({
     view_line_Horizontal: {
         height: 1,
         backgroundColor: '#F3F3F3',
-        marginBottom:scaleSizeH(3)
     },
     view_line_Horizontal_bottom: {
         height: 1,
-        backgroundColor: '#EEEEEE',
+        backgroundColor: '#F3F3F3',
         flex:1,
     },
 
     view_bottom:{
         flexDirection:'row',
         alignItems:'center',
+        marginTop:scaleSizeH(112)
     },
 
     img_inputtext: {
-        width: scaleSizeW(12),
-        height: scaleSizeH(17),
+        width: scaleSizeW(9),
+        height: scaleSizeH(11),
 
     },
     text_input_contnet: {
@@ -57,20 +57,20 @@ var styles = StyleSheet.create({
         color: '#000000'
     },
     text_top_left: {
-        fontSize: setSpText(22),
+        fontSize: setSpText(26),
         color: '#333333',
     },
     text_top_right: {
-        fontSize: setSpText(16),
+        fontSize: setSpText(14),
         color: '#04B48D',
     },
 
 
 
     text_bottom_black: {
-        color: '#B5B3B3',
+        color: '#999999',
         fontSize: setSpText(12),
-        marginTop:scaleSizeH(15),
+        marginTop:scaleSizeH(14)
     },
 
     text_bottom_green: {
@@ -82,7 +82,6 @@ var styles = StyleSheet.create({
         fontSize:setSpText(13),
         color:'#CCCCCC',
     },
-
 
 })
 

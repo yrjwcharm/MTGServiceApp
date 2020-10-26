@@ -98,13 +98,12 @@ class LoginPswScreen extends Component {
       Toast.info('请填写符合规范的手机号', );
       return;
     }
-
-    this.props.changePhone(this.state.phone);
-    this.props.fetchPswLogin({
-      "username": this.state.phone,
-      "password": this.state.password,
-      "authType": 1
-    }, this.getUserInfo);
+      this.props.changePhone(this.state.phone);
+     this.props.fetchPswLogin({
+       "username": this.state.phone,
+       "password": this.state.password,
+       "authType": 1
+     }, this.getUserInfo);
   }
 
 
@@ -130,7 +129,7 @@ class LoginPswScreen extends Component {
   }
 
   toSetPsw = () => {
-    this.props.navigation.navigate("SetPswCodeScreen")
+     this.props.navigation.navigate("SetPswCodeScreen")
   }
 
   toRegist = () => {

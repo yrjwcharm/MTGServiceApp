@@ -136,7 +136,7 @@ export const fetchUpload = (images, params, options) => {
 
 // 用户退出登录
 export const fetchUserLoginOut = () => {
-    return request.get(HOST + '/login/logout');
+    return request.get(HOST_MANAGE + '/login/logout');
 }
 
 

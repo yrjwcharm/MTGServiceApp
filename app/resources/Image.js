@@ -3,6 +3,7 @@ export  default{
      * 公共
      */
     empty:require('./images/common/noData.png'),
+    ic_rn_list_item_right:require('./images/common/ic_rn_listitem_right.png'),
     // back:require('./images/common/back.png'),
     /**
      *  登录
@@ -17,6 +18,17 @@ export  default{
     ic_eyes_open:require('./images/login/ic_eyes_open.png'),
     ic_qq_bottom:require('./images/login/ic_qq_bottm.png'),
     ic_left:require('./images/common/ic_left.png'),
+    /**
+     * 注册
+     */
+    ic_success :require('./images/register/ic_success.png'),
+    ic_remind:require('./images/register/ic_remind.png'),
+    id_card_back:require('./images/register/ic_idcardback.png'),
+    ic_idcard_positive:require('./images/register/ic_idcardpositive.png'),
+    ic_fail:require('./images/register/ic_failed.png'),
+    ic_cancel:require('./images/register/ic_cancel.png'),
+    ic_pass:require('./images/register/ic_pass.png'),
+    ic_test:require('./images/register/ic_testing.png'),
     /**
      * 首页
      */

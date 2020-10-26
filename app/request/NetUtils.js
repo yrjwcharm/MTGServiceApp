@@ -16,7 +16,7 @@ const RESOLVE_CODE = [ // 请求成功codes
   601,//计划已经删除
 ]
 const REDIRECT_CODE = { // 重定向codes
-  700000: ['LoginCodeScreen'],
+  700000: ['Login'],
   800000: ['Qualificationcertification_user'],
 }
 
@@ -67,7 +67,7 @@ function send(url, options = {}) {
           getNavigation().navigate(...redirect);
         }
         if (responseJson.code == 700000) {
-          ApiModule.loginout();
+          // ApiModule.loginout();
           return Promise.reject(responseJson)
         }
         // 除了成功，则全部判断为错误
