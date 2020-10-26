@@ -64,7 +64,7 @@ function AppContainer() {
                     headerTitleStyle: styles.headerTitle,
                     headerBackTitleVisible: false,
                     headerTitleAlign: 'center',
-                    gestureEnabled: true,
+                    gestureEnabled: false,
                     transitionSpec: { timing: Animated.timing },
                     headerLeft: _backButton,
                     ...TransitionPresets.SlideFromRightIOS,
@@ -87,7 +87,7 @@ function AppContainer() {
                 <Stack.Screen
                     name={'Main'}
                     component={MainScreen}
-                    options={{ gestureEnabled:false, headerLeft: null, headerShown: false }}
+                    options={{ headerLeft: null, headerShown: false }}
                 />
                 <Stack.Screen options={{headerShown:false}} name="WebViewPage" component={WebViewPage}/>
                 <Stack.Screen options={{title:'资讯详情'}} name="HealthInfoDetail" component={HealthInfoDetail}/>

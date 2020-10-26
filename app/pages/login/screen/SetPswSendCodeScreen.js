@@ -45,7 +45,7 @@ class SetPswSendCodeScreen extends Component {
 
     componentDidMount() {
         AppState.addEventListener('change',this._handleAppStateChange);
-        const {phone} = this.props.navigation.state.params;
+        const {phone} = this.props.route.params;
         if (this.state.count == 60) {
             this.props.fetchFindPswSendCode({
                 phone: phone,
@@ -91,7 +91,7 @@ class SetPswSendCodeScreen extends Component {
     }
 
     handleLogin = () => {
-        const {phone} = this.props.navigation.state.params;
+        const {phone} = this.props.route.params;
         if (!this.state.verificationCode.search(regExp.RegNull)) {
             Toast.info('验证码不能为空', 1.5, null, false);
             return;
@@ -126,7 +126,7 @@ class SetPswSendCodeScreen extends Component {
     }
     toSetPsw = (data) => {
         if (data.code==200){
-            const {phone} = this.props.navigation.state.params;
+            const {phone} = this.props.route.params;
 
             this.props.navigation.replace('SetPsw', {
                 phone: phone,
@@ -201,14 +201,14 @@ class SetPswSendCodeScreen extends Component {
 
     toRegist = () => {
         this.onClose();
-        const {phone} = this.props.navigation.state.params;
+        const {phone} = this.props.route.params;
         this.props.navigation.navigate('Regist', {
             phone: phone
         })
     }
 
     reSendCode = () => {
-        const {phone} = this.props.navigation.state.params;
+        const {phone} = this.props.route.params;
         this.props.fetchFindPswSendCode({
             phone: phone,
             authType:1,
@@ -229,7 +229,7 @@ class SetPswSendCodeScreen extends Component {
 
     render() {
         const {isLoading, navigation} = this.props;
-        const {phone} = this.props.navigation.state.params;
+        const {phone} = this.props.route.params;
         const modal_content = <RegistModalView phone={phone}/>;
         const modal_content2 = <Text style={{lineHeight:20}}>点击[返回]将会中断操作，确定要返回吗？</Text>;
 

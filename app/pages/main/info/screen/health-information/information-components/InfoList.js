@@ -9,6 +9,7 @@ import List from '../../../../../../components/List';
 import InfoItems from './InfoItems';
 import { scaleSizeH } from '../../../../../../util/AutoLayout';
 import { ThemeFlags } from '../../../../../../styles/ThemeFactory';
+import navigation from '../../../../../../NavigationHelper';
 
 
 const _requestMethod = (page, item) => {
@@ -27,11 +28,17 @@ const InfoList = (props) => {
       marginBottom: ThemeFlags['content-margin-horizontal'],
     }
     : { flex: 1, };
+ const  _renderItem=({item,index})=>{
+     const { stylesOfComponents,navigation, temp, styles, _handleItemClick,  isDetailList } = props;
+     return(
+          <InfoItems item={item} navigation={navigation}  temp={temp} isDetailList={isDetailList} stylesOfComponents={stylesOfComponents} styles={styles} onPress={_handleItemClick} />
+      )
+  }
   return (
     <View style={styleData}>
       <List
         requestMethod={(page) => _requestMethod(page, temp)}
-        renderItem={(props) => <InfoItems {...props} temp={temp} isDetailList={isDetailList} stylesOfComponents={stylesOfComponents} styles={styles} onPress={_handleItemClick} />}
+        renderItem={_renderItem}
         keyExtractor={item => item['newsId'] + "" + index}
         getList={source => source.records}
         getPage={source => source.current}

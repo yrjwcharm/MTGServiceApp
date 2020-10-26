@@ -549,7 +549,7 @@ class AgreementScreen extends Component {
 
 \`\`\`
 `
-        const {type} = this.props.navigation.state.params;
+        const {type} = this.props.route.params;
         const {navigation} = this.props;
 
         return (

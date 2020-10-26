@@ -19,6 +19,7 @@ import InfoList from './information-components/InfoList';
 import { scaleSizeH, setSpText } from '../../../../../util/AutoLayout';
 import { ThemeFlags } from '../../../../../styles/ThemeFactory';
 import Title from '../../../../../components/Title';
+import navigation from '../../../../../NavigationHelper';
 // import { fetchInfoTypeList } from '../../store/healthInfo/api';
 
 class HealthInformation extends Component {
@@ -77,6 +78,7 @@ class HealthInformation extends Component {
                     tabLabel={item.typeName}
                     key={item.typeId + index}
                     temp={item}
+                    navigation={this.props.navigation}
                     styles={styles}
                     isDetailList={true}
                     stylesOfComponents={stylesOfComponents}

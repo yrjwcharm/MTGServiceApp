@@ -45,7 +45,7 @@ class LoginSendCodeScreen extends Component {
     })
 
     componentDidMount() {
-        const {phone} = this.props.navigation.state.params;
+        const {phone} = this.props.route.params;
         if (this.state.count == 60) {
             this.props.fetchSendCode({
                 phone: phone,
@@ -92,7 +92,7 @@ class LoginSendCodeScreen extends Component {
     }
 
     handleLogin = () => {
-        const {phone} = this.props.navigation.state.params;
+        const {phone} = this.props.route.params;
         if (!this.state.verificationCode.search(regExp.RegNull)) {
             Toast.info('验证码不能为空', 1.5, null, false);
             return;
@@ -266,14 +266,14 @@ class LoginSendCodeScreen extends Component {
 
     toRegist = () => {
         this.onClose();
-        const {phone} = this.props.navigation.state.params;
+        const {phone} = this.props.route.params;
         this.props.navigation.navigate('Regist', {
             phone: phone
         })
     }
 
     reSendCode = () => {
-        const {phone} = this.props.navigation.state.params;
+        const {phone} = this.props.route.params;
         this.props.fetchSendCode({phone: phone,authType:1,
             workType:2}, this.countTime)
     }
@@ -292,7 +292,7 @@ class LoginSendCodeScreen extends Component {
 
     render() {
         const {isLoading, navigation} = this.props;
-        const {phone} = this.props.navigation.state.params;
+        const {phone} = this.props.route.params;
         const modal_content = <RegistModalView phone={phone}/>;
         const modal_content2 = <Text style={{lineHeight:20}}>点击[返回]将会中断操作，确定要返回吗？</Text>;
 
